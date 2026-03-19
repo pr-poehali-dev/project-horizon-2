@@ -1,87 +1,28 @@
-import { Facebook, Instagram, Twitter, Github, Mail, MapPin, Phone } from "lucide-react"
-
-const data = {
-  facebookLink: "https://facebook.com/digitalhub",
-  instaLink: "https://instagram.com/digitalhub",
-  twitterLink: "https://twitter.com/digitalhub",
-  githubLink: "https://github.com/digitalhub",
-  services: {
-    web: "/web-razrabotka",
-    mobile: "/mobilnye-prilozheniya",
-    design: "/ui-ux-dizajn",
-    marketing: "/digital-marketing",
-  },
-  about: {
-    story: "/o-nas",
-    team: "/komanda",
-    portfolio: "/portfolio",
-    careers: "/vakansii",
-  },
-  help: {
-    faqs: "/faq",
-    support: "/podderzhka",
-    blog: "/blog",
-  },
-  contact: {
-    email: "hello@digitalhub.ru",
-    phone: "+7 (495) 123-45-67",
-    address: "Москва, Россия",
-  },
-  company: {
-    name: "ДиджиталХаб",
-    description:
-      "Создаём цифровые продукты, которые помогают бизнесу расти. Веб-разработка, мобильные приложения и дизайн под ключ.",
-  },
-}
-
-const socialLinks = [
-  { icon: Facebook, label: "Facebook", href: data.facebookLink },
-  { icon: Instagram, label: "Instagram", href: data.instaLink },
-  { icon: Twitter, label: "Twitter", href: data.twitterLink },
-  { icon: Github, label: "GitHub", href: data.githubLink },
-]
-
-const aboutLinks = [
-  { text: "О нас", href: data.about.story },
-  { text: "Команда", href: data.about.team },
-  { text: "Портфолио", href: data.about.portfolio },
-  { text: "Вакансии", href: data.about.careers },
-]
-
-const serviceLinks = [
-  { text: "Веб-разработка", href: data.services.web },
-  { text: "Мобильные приложения", href: data.services.mobile },
-  { text: "UI/UX Дизайн", href: data.services.design },
-  { text: "Digital-маркетинг", href: data.services.marketing },
-]
-
-const helpfulLinks = [
-  { text: "FAQ", href: data.help.faqs },
-  { text: "Поддержка", href: data.help.support },
-  { text: "Блог", href: data.help.blog, hasIndicator: true },
-]
-
-const contactInfo = [
-  { icon: Mail, text: data.contact.email },
-  { icon: Phone, text: data.contact.phone },
-  { icon: MapPin, text: data.contact.address, isAddress: true },
-]
-
-export default function Footer() {
+const Footer = () => {
   return (
     <>
       <style>{`
-        .ai-footer {
-          background-color: #073642;
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@400;700&display=swap');
+
+        .fnaf-footer {
+          background-color: #050000;
           position: relative;
           overflow: hidden;
+          border-top: none;
         }
 
-        .ai-footer::before {
+        .checker-footer {
+          width: 100%;
+          height: 28px;
+          background-image: repeating-conic-gradient(#cc0000 0% 25%, #fff 0% 50%);
+          background-size: 28px 28px;
+        }
+
+        .fnaf-footer::before {
           content: "";
           border-radius: 197.5px 0px;
-          opacity: 0.3;
-          background: #d33682;
+          opacity: 0.2;
+          background: #cc0000;
           filter: blur(140px);
           height: 60%;
           width: 50%;
@@ -91,31 +32,17 @@ export default function Footer() {
           z-index: 0;
         }
 
-        .ai-footer::after {
-          content: "";
-          border-radius: 197.5px 0px;
-          opacity: 0.2;
-          background: #cb4b16;
-          filter: blur(120px);
-          height: 40%;
-          width: 40%;
-          position: absolute;
-          bottom: 10%;
-          right: -20%;
-          z-index: 0;
-        }
-
-        .footer-container {
+        .footer-inner {
           position: relative;
           z-index: 1;
           max-width: 1400px;
           margin: 0 auto;
-          padding: 80px 30px 30px;
+          padding: 70px 30px 30px;
         }
 
-        .footer-grid {
+        .footer-top {
           display: grid;
-          grid-template-columns: 1fr 2fr;
+          grid-template-columns: 1.2fr 2fr;
           gap: 80px;
           margin-bottom: 60px;
         }
@@ -125,356 +52,192 @@ export default function Footer() {
           flex-direction: column;
         }
 
-        .brand-logo {
+        .footer-logo {
           display: flex;
           align-items: center;
-          gap: 15px;
-          margin-bottom: 30px;
+          gap: 14px;
+          margin-bottom: 24px;
         }
 
-        .brand-icon {
-          width: 50px;
-          height: 50px;
-          background: #d33682;
+        .footer-logo-icon {
+          width: 52px;
+          height: 52px;
+          background: #cc0000;
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-family: "Montserrat", sans-serif;
-          font-weight: 700;
-          font-size: 20px;
-          color: #002b36;
+          font-size: 26px;
         }
 
-        .brand-name {
-          font-family: "Montserrat", sans-serif;
-          font-weight: 700;
-          font-size: 28px;
-          color: #ffffff;
+        .footer-logo-name {
+          font-family: "Creepster", cursive;
+          font-size: 22px;
+          color: #fff;
           text-transform: uppercase;
+          line-height: 1.2;
         }
 
-        .brand-description {
+        .footer-logo-name span {
+          display: block;
           font-family: "Montserrat";
-          font-size: 16px;
-          line-height: 1.8;
-          color: #aaa;
-          margin-bottom: 40px;
-          max-width: 400px;
+          font-size: 11px;
+          font-weight: 400;
+          color: #666;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          margin-top: 2px;
         }
 
-        .social-links {
-          display: flex;
-          gap: 20px;
+        .footer-desc {
+          font-family: "Montserrat";
+          font-size: 14px;
+          line-height: 1.9;
+          color: #666;
+          margin-bottom: 32px;
+          max-width: 380px;
         }
 
-        .social-link {
-          width: 45px;
-          height: 45px;
-          background: rgba(211, 54, 130, 0.1);
-          border: 1px solid #333;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #d33682;
-          text-decoration: none;
-          transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-          background: #d33682;
-          color: #002b36;
-          transform: translateY(-2px);
-        }
-
-        .footer-links {
+        .footer-links-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 40px;
+          gap: 32px;
         }
 
-        .link-column h3 {
-          font-family: "Montserrat", sans-serif;
-          font-weight: 700;
-          font-size: 16px;
-          color: #d33682;
+        .footer-col h4 {
+          font-family: "Creepster", cursive;
+          font-size: 18px;
+          color: #cc0000;
           text-transform: uppercase;
-          margin: 0 0 25px;
+          margin: 0 0 20px;
           letter-spacing: 1px;
         }
 
-        .link-list {
+        .footer-col ul {
           list-style: none;
           padding: 0;
           margin: 0;
         }
 
-        .link-item {
-          margin-bottom: 15px;
+        .footer-col li {
+          margin-bottom: 12px;
         }
 
-        .link-item a {
+        .footer-col a {
           font-family: "Montserrat";
-          font-size: 14px;
-          color: #aaa;
+          font-size: 13px;
+          color: #666;
           text-decoration: none;
           transition: color 0.3s ease;
-          display: flex;
-          align-items: center;
-          gap: 8px;
         }
 
-        .link-item a:hover {
-          color: #ffffff;
-        }
-
-        .contact-item {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-        }
-
-        .contact-icon {
-          width: 20px;
-          height: 20px;
-          color: #d33682;
-          flex-shrink: 0;
-        }
-
-        .live-indicator {
-          position: relative;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .pulse-dot {
-          position: relative;
-          width: 8px;
-          height: 8px;
-        }
-
-        .pulse-dot::before {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: #d33682;
-          border-radius: 50%;
-          animation: pulse 2s infinite;
-        }
-
-        .pulse-dot::after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: #d33682;
-          border-radius: 50%;
-        }
-
-        @keyframes pulse {
-          0% {
-            transform: scale(0.95);
-            box-shadow: 0 0 0 0 rgba(211, 54, 130, 0.7);
-          }
-          70% {
-            transform: scale(1);
-            box-shadow: 0 0 0 10px rgba(211, 54, 130, 0);
-          }
-          100% {
-            transform: scale(0.95);
-            box-shadow: 0 0 0 0 rgba(211, 54, 130, 0);
-          }
+        .footer-col a:hover {
+          color: #fff;
         }
 
         .footer-bottom {
-          border-top: 1px solid #333;
-          padding-top: 30px;
+          border-top: 1px solid #1a0000;
+          padding-top: 28px;
           display: flex;
           justify-content: space-between;
           align-items: center;
           flex-wrap: wrap;
-          gap: 20px;
+          gap: 16px;
         }
 
-        .copyright {
+        .footer-copy {
           font-family: "Montserrat";
-          font-size: 14px;
-          color: #aaa;
+          font-size: 13px;
+          color: #444;
         }
 
-        .copyright a {
-          color: #d33682;
-          text-decoration: none;
-          transition: color 0.3s ease;
+        .footer-copy span {
+          color: #cc0000;
         }
 
-        .copyright a:hover {
-          color: #ffffff;
+        .footer-tagline {
+          font-family: "Creepster", cursive;
+          font-size: 16px;
+          color: #2a0000;
+          letter-spacing: 2px;
+          text-transform: uppercase;
         }
 
-        .footer-legal {
-          display: flex;
-          gap: 30px;
+        @media screen and (max-width: 900px) {
+          .footer-top { grid-template-columns: 1fr; gap: 40px; }
+          .footer-links-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
-        .footer-legal a {
-          font-family: "Montserrat";
-          font-size: 14px;
-          color: #aaa;
-          text-decoration: none;
-          transition: color 0.3s ease;
-        }
-
-        .footer-legal a:hover {
-          color: #ffffff;
-        }
-
-        @media screen and (max-width: 1199px) {
-          .footer-container {
-            padding: 60px 20px 20px;
-          }
-
-          .footer-grid {
-            gap: 60px;
-          }
-
-          .footer-links {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-          }
-        }
-
-        @media screen and (max-width: 767px) {
-          .footer-container {
-            padding: 40px 16px 16px;
-          }
-
-          .footer-grid {
-            grid-template-columns: 1fr;
-            gap: 40px;
-          }
-
-          .footer-links {
-            grid-template-columns: 1fr;
-            gap: 25px;
-          }
-
-          .brand-name {
-            font-size: 24px;
-          }
-
-          .brand-description {
-            font-size: 14px;
-          }
-
-          .social-links {
-            gap: 15px;
-          }
-
-          .social-link {
-            width: 40px;
-            height: 40px;
-          }
-
-          .footer-bottom {
-            flex-direction: column;
-            text-align: center;
-            gap: 15px;
-          }
-
-          .footer-legal {
-            gap: 20px;
-          }
+        @media screen and (max-width: 500px) {
+          .footer-links-grid { grid-template-columns: 1fr; }
+          .footer-inner { padding: 40px 16px 24px; }
         }
       `}</style>
 
-      <footer className="ai-footer">
-        <div className="footer-container">
-          <div className="footer-grid">
+      <footer className="fnaf-footer">
+        <div className="checker-footer" />
+        <div className="footer-inner">
+          <div className="footer-top">
             <div className="footer-brand">
-              <div className="brand-logo">
-                <div className="brand-icon">DH</div>
-                <span className="brand-name">{data.company.name}</span>
+              <div className="footer-logo">
+                <div className="footer-logo-icon">🐻</div>
+                <div className="footer-logo-name">
+                  Freddy Fazbear's Pizza
+                  <span>Est. 1987 · Horror & Fun</span>
+                </div>
               </div>
-              <p className="brand-description">{data.company.description}</p>
-              <div className="social-links">
-                {socialLinks.map(({ icon: Icon, label, href }) => (
-                  <a key={label} href={href} className="social-link" aria-label={label}>
-                    <Icon size={20} />
-                  </a>
-                ))}
-              </div>
+              <p className="footer-desc">
+                Единственное место, где аниматроники выходят на сцену каждые 30 минут,
+                а пицца приготовлена с настоящей тёмной страстью. Добро пожаловать в семью Фредди.
+              </p>
             </div>
 
-            <div className="footer-links">
-              <div className="link-column">
-                <h3>О компании</h3>
-                <ul className="link-list">
-                  {aboutLinks.map(({ text, href }) => (
-                    <li key={text} className="link-item">
-                      <a href={href}>{text}</a>
-                    </li>
-                  ))}
+            <div className="footer-links-grid">
+              <div className="footer-col">
+                <h4>Меню</h4>
+                <ul>
+                  <li><a href="#">Пиццы</a></li>
+                  <li><a href="#">Напитки</a></li>
+                  <li><a href="#">Десерты</a></li>
+                  <li><a href="#">Детское меню</a></li>
                 </ul>
               </div>
-
-              <div className="link-column">
-                <h3>Услуги</h3>
-                <ul className="link-list">
-                  {serviceLinks.map(({ text, href }) => (
-                    <li key={text} className="link-item">
-                      <a href={href}>{text}</a>
-                    </li>
-                  ))}
+              <div className="footer-col">
+                <h4>Мероприятия</h4>
+                <ul>
+                  <li><a href="#">Дни рождения</a></li>
+                  <li><a href="#">Корпоративы</a></li>
+                  <li><a href="#">Квест-вечера</a></li>
+                  <li><a href="#">Аренда зала</a></li>
                 </ul>
               </div>
-
-              <div className="link-column">
-                <h3>Ресурсы</h3>
-                <ul className="link-list">
-                  {helpfulLinks.map(({ text, href, hasIndicator }) => (
-                    <li key={text} className="link-item">
-                      <a href={href}>
-                        {hasIndicator ? (
-                          <span className="live-indicator">
-                            {text}
-                            <span className="pulse-dot"></span>
-                          </span>
-                        ) : (
-                          text
-                        )}
-                      </a>
-                    </li>
-                  ))}
+              <div className="footer-col">
+                <h4>О нас</h4>
+                <ul>
+                  <li><a href="#">История</a></li>
+                  <li><a href="#">Аниматроники</a></li>
+                  <li><a href="#">Вакансии</a></li>
+                  <li><a href="#">Пресса</a></li>
                 </ul>
               </div>
-
-              <div className="link-column">
-                <h3>Контакты</h3>
-                <ul className="link-list">
-                  {contactInfo.map(({ icon: Icon, text, isAddress }) => (
-                    <li key={text} className="link-item">
-                      <a href="#" className="contact-item">
-                        <Icon className="contact-icon" size={20} />
-                        {isAddress ? <address style={{ fontStyle: "normal" }}>{text}</address> : <span>{text}</span>}
-                      </a>
-                    </li>
-                  ))}
+              <div className="footer-col">
+                <h4>Контакты</h4>
+                <ul>
+                  <li><a href="#">📍 ул. Фредди, 5</a></li>
+                  <li><a href="#">📞 8-800-FREDDY</a></li>
+                  <li><a href="#">✉️ pizza@freddy.ru</a></li>
+                  <li><a href="#">🕐 Пн–Вс: 11:00–23:00</a></li>
                 </ul>
               </div>
             </div>
           </div>
 
           <div className="footer-bottom">
-            <p className="copyright">
-              2025 <a href="https://poehali.dev">poehali.dev</a>
-            </p>
-            <div className="footer-legal">
-              <a href="/privacy">Политика конфиденциальности</a>
-              <a href="/terms">Условия использования</a>
+            <div className="footer-copy">
+              © 1987–2024 <span>Freddy Fazbear's Pizza</span>. Все права защищены.
+            </div>
+            <div className="footer-tagline">
+              Мы всегда наблюдаем за тобой 👀
             </div>
           </div>
         </div>
@@ -482,3 +245,5 @@ export default function Footer() {
     </>
   )
 }
+
+export default Footer
